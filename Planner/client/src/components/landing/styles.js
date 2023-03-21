@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
-    backgroundColor: '#454B1B',
+    backgroundColor: '#C73E1D',
     boxShadow: 'none',
     flexDirection: 'column',
     textAlign: 'center',

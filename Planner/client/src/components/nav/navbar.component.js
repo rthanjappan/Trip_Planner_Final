@@ -24,7 +24,7 @@ const Nav = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <div className={classes.brandContainer}>
-                <Typography component={Link} to={ user ? "/home" : "/" } className={classes.heading} variant="h2" align="center">Trip Planner</Typography>
+                <Typography component={Link} to={ user ? "/page" : "/" } className={classes.heading} variant="h2" align="center">Trip Planner</Typography>
                 {/* <img className={classes.image} src={''} alt="gwinnett" height="60" /> */}
             </div>
             {user ? (
