@@ -22,8 +22,13 @@ const intData = {
             title: 'Places to go',
             taskIds: [],
         },
+        'column-4': {
+            id: 'column-4',
+            title: 'Activites',
+            taskIds: [],
+        },
     },
-    columnOrder: ['column-1', 'column-2', 'column-3'],
+    columnOrder: ['column-1', 'column-2', 'column-3', 'column-4'],
 };
 
 export default intData;

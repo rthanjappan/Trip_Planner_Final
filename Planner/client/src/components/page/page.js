@@ -4,12 +4,15 @@ import initialData from './intData';
 import Column from './column';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import { Card, Button, Paper, Typography} from '@material-ui/core';
+import germany from '../../images/germany.jpg';
 
 const Container = styled.div`
     display: flex;
 `;
 
 export default class App extends React.Component {
+    
 
   state = initialData;
 
@@ -108,6 +111,12 @@ this.setState(newState);
 
             return <Column key={column.id} column={column} tasks={tasks} />;
             })}
+        </Container>
+        <Container>
+            <Paper>
+                <Typography variant="h5" >Germany</Typography>
+                <img src={germany} alt="Germany" height = "200px"/>
+            </Paper>
         </Container>
         </DragDropContext>
     );

@@ -6,9 +6,9 @@ import Navbar from "./components/nav/navbar.component.js";
 import Landing from './components/landing/landing.component.js';
 import Login from './components/login/login.component.js';
 import Home from './components/home/home.component.js';
-import Board from './components/board/board.component.js';
 import Task from './components/task/task.component.js';
 import Page from './components/page/page.js';
+import Vote from './components/vote/vote.component.js';
 
 
 
@@ -22,9 +22,9 @@ function App() {
               <Route path="/" element= {<Landing />} />
               <Route path="/login" element= {<Login />} />
               <Route path="/home" element= {<Home />} />
-              <Route path="/board" element= {<Board />} />
               <Route path="/task" element= {<Task />} />
               <Route path="/page" element= {<Page />} />
+              <Route path="/vote" element= {<Vote />} />
           </Routes>
       </Container>
     </BrowserRouter>
