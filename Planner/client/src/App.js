@@ -9,8 +9,9 @@ import Home from './components/home/home.component.js';
 import Task from './components/task/task.component.js';
 import Page from './components/page/page.js';
 import Vote from './components/vote/vote.component.js';
-
-
+import Names from './components/names/names.component.js'
+import Groups from './components/groups/groups.component.js'
+import Invitations from './components/invitations/invitations.components.js'
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
               <Route path="/task" element= {<Task />} />
               <Route path="/page" element= {<Page />} />
               <Route path="/vote" element= {<Vote />} />
+              <Route path="/names" element= {<Names />} />
+              <Route path="/groups" element= {<Groups />} />
+              <Route path="/invitations" element= {<Invitations />} />
           </Routes>
       </Container>
     </BrowserRouter>
