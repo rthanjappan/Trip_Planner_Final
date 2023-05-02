@@ -74,13 +74,13 @@ const Names = () => {
         <h3>Add more names</h3>
         <p>Later you can :</p>
         <ul>
-            <li>invite more people to join</li>
-            <li>remove someone who isn't taking part in the trip</li>
+            <li>Invite more people to join</li>
+            <li>Remove someone who isn't taking part in the trip</li>
         </ul>
         {/* <Button type="submit" color="primary" onClick={displayNames}>
                            Next step                   </Button> */}
 
-        <Button type="submit" color="primary" onClick={savemembers } className={classes.submit}>
+        <Button type="submit" variant="contained" color="primary" onClick={savemembers } className={classes.submit}>
         Next Step</Button>
         </div>
     );

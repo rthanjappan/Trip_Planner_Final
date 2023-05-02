@@ -175,7 +175,7 @@ const Groups = () => {
         {/* <Button type="submit" color="primary" onClick={roseAccessing } className={classes.submit}>
         Confirm</Button> */}
         <Button type="submit" color="primary" 
-        onClick={save_trip_details } className={classes.submit} component={Link} to="/invitations">
+        onClick={save_trip_details } variant="contained" className={classes.submit} component={Link} to="/emails">
         Confirm</Button>
         </div>
     );

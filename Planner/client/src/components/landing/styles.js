@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   paper: {
-    backgroundColor: '#C73E1D',
     boxShadow: 'none',
     flexDirection: 'column',
     textAlign: 'center',
@@ -13,7 +12,7 @@ export default makeStyles((theme) => ({
   },
   subtitle: {
     marginTop: theme.spacing(3),
-    color: 'white',
+    color: 'black',
   },
   body: {
     marginTop: theme.spacing(3),

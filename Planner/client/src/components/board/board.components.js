@@ -1,10 +1,11 @@
-import { Grid, Typography, Container, TextField, Button} from '@material-ui/core';
+import { Grid, Typography, Container, TextField, Button, Divider} from '@material-ui/core';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 import useStyles from './styles.js';
 import { createColumn, updateColumn, deleteColumn, getColumn } from '../../actions/column.action.js';
 import Column from './columns/columns.js';
+import { createTask, getTask } from '../../actions/task.action.js';
 
 const Board = ({setCurrentId}) => {
 
@@ -29,22 +30,29 @@ const Board = ({setCurrentId}) => {
     };
 
     return (
-        <DragDropContext>
-            <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                <Grid item xs={12} sm={12} md={2} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                    <form onSubmit={handleSubmit}>
-                    <TextField name = 'title' onChange={(e) => setColumnData({...columnData, title: e.target.value})}></TextField>
-                    <br/>
-                    <Button type='submit' color="primary" variant="contained">Create</Button>
-                    </form>
-                </Grid>
-                {columns.map((column) => (
-                    <Grid item xs={12} sm={12} md={6} style={{ background: 'rgba(255, 255, 255, 1)' }}>
-                        <Column column = {column} />
-                    </Grid>
-                ))}
+        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={2} md={1} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                <Typography>Create Column</Typography>
+                <Divider/>
+                <form onSubmit={handleSubmit}>
+                <TextField variant="outlined" label="Title" margin="normal" value={columnData.title}
+                onChange={(e) => setColumnData({...columnData, title: e.target.value})}></TextField>
+                <br/>
+                <Button type='submit' color="primary" variant="contained">+</Button>
+                </form>
             </Grid>
-        </DragDropContext>
+            <Grid item xs={12} sm={9} md={9} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+            <DragDropContext>
+                <Grid className={classes.gridContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    {columns.map((column) => (
+                        <Grid item xs={12} sm={6} md={3} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+                            <Column column = {column} setCurrentId={setCurrentId}/>
+                        </Grid>
+                    ))}
+                </Grid>
+            </DragDropContext>
+            </Grid>
+        </Grid>
     );
 }
 

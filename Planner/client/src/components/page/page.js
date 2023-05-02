@@ -4,17 +4,49 @@ import initialData from './intData';
 import Column from './column';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
-import { Card, Button, Paper, Typography} from '@material-ui/core';
-import germany from '../../images/germany.jpg';
+import { Card, Button, Paper, Typography, Grid, TextField, Divider} from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Container = styled.div`
     display: flex;
 `;
 
-export default class App extends React.Component {
-    
+const intData = {
+    tasks: {
+        'task-1': { id: 'task-1', content: 'Pizza Restaurant' },
+        'task-2': { id: 'task-2', content: 'Park' },
+        'task-3': { id: 'task-3', content: 'Sushi Resturant' },
+        'task-4': { id: 'task-4', content: 'Burger Resturant' },
+        'task-5': { id: 'task-5', content: 'Spaghetti Resturant' },
+    },
+    columns: {
+        'column-1': {
+            id: 'column-1',
+            title: '',
+            taskIds: [],
+        },
+        'column-2': {
+            id: 'column-2',
+            title: 'Places to eat',
+            taskIds: [],
+        },
+        'column-3': {
+            id: 'column-3',
+            title: 'Activites',
+            taskIds: [],
+        },
+    },
+    columnOrder: ['column-1',],
+};
 
-  state = initialData;
+
+const handleSubmit = (e) => {
+    // e.preventDefault();
+};
+
+export default class App extends React.Component {
+
+  state = intData;
 
   onDragEnd = result => {
 
@@ -84,23 +116,48 @@ export default class App extends React.Component {
 this.setState(newState);
   };
 
+  
+  
+
   render() {
 
     return (
-        <DragDropContext 
-            onDragStart = {this.onDragStart}
-            onDragUpdate = {this.onDragUpdate}
-            onDragEnd={this.onDragEnd}
-        >
-        <Container>
-            {this.state.columnOrder.map(columnId => {
-            const column = this.state.columns[columnId];
-            const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
+        <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={6} md={1} style={{ background: 'rgba(255, 255, 255, 0.75)' }}>
+                <form onSubmit={handleSubmit}>
+                <Typography align='center'>Create Column</Typography>
+                <Divider/>
+                <TextField name = 'title' variant="outlined" label="Title" margin="normal"></TextField>
+                <br/><br/>
+                <Button type='submit' color="primary" variant="contained" >+</Button>
+                </form>
+            </Grid>
+            <Grid item xs={12} sm={6} md={1} style={{ background: 'rgba(255, 255, 255, 0.75)' }}>
+                <form onSubmit={handleSubmit}>
+                <Typography align='center'>Create Task</Typography>
+                <Divider/>
+                <TextField name = 'title' variant="outlined" label="Title" margin="normal"></TextField>
+                <br/><br/>
+                <Button type='submit' color="primary" variant="contained" >+</Button>
+                </form>
+            </Grid>
+            <Grid item xs={12} sm={6} md={9} style={{ background: 'rgba(255, 255, 255, 1)' }}>
+            <DragDropContext 
+                onDragStart = {this.onDragStart}
+                onDragUpdate = {this.onDragUpdate}
+                onDragEnd={this.onDragEnd}
+            >
+            <Container>
+                {this.state.columnOrder.map(columnId => {
+                const column = this.state.columns[columnId];
+                const tasks = column.taskIds.map(taskId => this.state.tasks[taskId]);
 
-            return <Column key={column.id} column={column} tasks={tasks} />;
-            })}
-        </Container>
-        </DragDropContext>
+                return <Column key={column.id} column={column} tasks={tasks} />;
+                })}
+            </Container>
+            </DragDropContext>
+            </Grid>
+        </Grid>
     );
   }
 }

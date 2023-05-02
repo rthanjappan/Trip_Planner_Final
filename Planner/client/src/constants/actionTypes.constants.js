@@ -13,3 +13,8 @@ export const CREATECOLUMN = 'CREATE';
 export const UPDATECOLUMN = 'UPDATE';
 export const DELETECOLUMN = 'DELETE';
 export const FETCH_ALLCOLUMN = 'FETCH_ALL';
+
+export const CREATETASK = 'CREATE';
+export const UPDATETASK = 'UPDATE';
+export const DELETETASK = 'DELETE';
+export const FETCH_ALLTASK = 'FETCH_ALL';

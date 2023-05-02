@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Task from './task.model.js';
 
 const ColumnSchema = mongoose.Schema({
     Group_ID: Number,
