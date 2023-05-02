@@ -20,3 +20,4 @@ export const getGroupMembers = (dataTosave) => API.post('/user/getGroupMembers',
 
 
 export const getTripDetails = () => API.get('/tripdetails');
+export const getMemberDetails = () => API.get('/memberdetails');

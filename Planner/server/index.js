@@ -6,7 +6,7 @@ import cors from 'cors';
 
 import userRoutes from './routes/users.routes.js';
 import tripDetailsRoutes from './routes/tripdetails.routes.js';
-
+import memberDetailRoutes from './routes/memberDetails.routes.js';
 const app = express();
 //dotenv.config();
 
@@ -17,6 +17,7 @@ app.use(cors());
 app.use('/user', userRoutes);
 
 app.use('/tripdetails', tripDetailsRoutes);
+app.use('/memberDetails', memberDetailRoutes);
 
 
 //const PORT = process.env.PORT || 5000;

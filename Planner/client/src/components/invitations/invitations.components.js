@@ -104,6 +104,23 @@ const Invitations = () => {
     //     setInvitationMessage(event.target.value);
     // }; 
     
+    const send_Whatsapp =()=>{
+        let number=7621231234;
+        let url = `https://web.whatsapp.com/send?phone=${number}`;
+        window.open(url);
+    }
+    const send_Messenger =()=>{
+        // window.FB.init({
+        //     appId: window.config.facebook.appId,
+        //     autoLogAppEvents: true,
+        //     status: true,
+        //     cookie: true,
+        //     xfbml: false,
+        //     version: 'v3.2',
+        //   });
+          window.open('https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js');
+    }
+    
     const send_invitations = ()=>{
         console.log("groups.component.js sending invitations to group details.");
     //     const dataTosave={
@@ -148,6 +165,7 @@ const Invitations = () => {
             <br></br>
             <Link to="/emails">
                 <Button><img style={{paddingRight: '30px'}}
+               
                  src={email_icon}
                  alt="copy_link_img" width="50px" height="50px"/>  
                 Email
@@ -164,20 +182,21 @@ const Invitations = () => {
             </Link>
                 
             <br></br>
-            <Link to="/names">
-                <Button><img style={{paddingRight: '30px'}} 
+            {/* <Link to="/names"> */}
+                <Button onClick={send_Whatsapp}><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
-                src={whatsapp_icon}/> Whatsapp 
+                src={whatsapp_icon}
+                /> Whatsapp 
                 <span style={{paddingLeft: '141px'}}>{">"}</span></Button>
-            </Link>
+            {/* </Link> */}
                 
             <br></br>
-            <Link to="/names">
-                <Button><img style={{paddingRight: '30px'}} 
+            {/* <Link to="/names"> */}
+                <Button onClick={send_Messenger}><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={messenger_icon}/> Messenger
                 <span style={{paddingLeft: '125px'}}>{">"}</span></Button>
-            </Link>
+            {/* </Link> */}
                 
             <br></br>
 

@@ -1,12 +1,9 @@
-//import useStyles from './styles';
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
 
-
-// import Navbar from "../nav/navbar.component";
 import Input from '../login/input.component.js';
-
 
 import { AUTH } from '../../constants/actionTypes.constants.js';
 import { useNavigate } from 'react-router-dom';
@@ -15,16 +12,22 @@ import * as api from '../../api/index.api.js';
 import useStyles from '../login/styles.js';
 import { blue } from '@material-ui/core/colors';
 
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { get_member_Details } from '../../actions/memberDetails.actions.js'
+import { useEffect } from 'react';
+//import {Linking} from 'react-native';
 const Emails = () => {
     const classes = useStyles();
     
     const [input, setInput] = useState("Your Name");
     const [ formData, setFormData ] = useState('');
     const navigate = useNavigate();
-    
-    
+    const dispatch = useDispatch();
+
+    //call information from store
+    const {details, isLoading} = useSelector((state) => state.details);
+
+    //console.log("***********"+details);
     let namesDataFromDb=[
   
        {name: "Nimmy"},
@@ -43,30 +46,37 @@ const Emails = () => {
     // YourEmail: formData.email,
     // InvitationMessage: invitationMessage,
 };
+//get from database
+    // useEffect(() => {
+    //     dispatch(getDetails());
+    // }, [dispatch])
 
-  //let namesDataFromDb1=
-  api.getGroupMembers(dataTosave).then((response)=>{
+    // const [detailForm, setDetailForm] = useState(initialState);
+    useEffect(() => {
+          dispatch(get_member_Details());
+      }, [dispatch])
+      console.log("***********"+JSON.stringify(details));
+
+      namesDataFromDb=[
+        {name:details[0]?.member2??""},
+        {name:details[0]?.member3??""},
+        {name:details[0]?.member4??""},
+        {name:details[0]?.member5??""}
     
-    namesDataFromDb=JSON.stringify(response.data);
-    console.log(" Working "+namesDataFromDb);
+      ];
+
+    console.log("namesDataFromDb  : "+JSON.stringify(namesDataFromDb));
     
-  }).catch((err)=>console.log("hoooooooooo..."+
-  
-  err.response.data.message));
+    let namesDataFromDb1=[];
+     namesDataFromDb.map(nameRecord => {
+      if(nameRecord.name!=""){
 
- // namesDataFromDb = JSON.parse(namesDataFromDb.name);
+        namesDataFromDb1=[...namesDataFromDb1,nameRecord];
+      }});
 
-
-
-//let namesDataFromDb1= api.getGroupMembers(dataTosave);
-
-//console.log("From Emails : working ...."+namesDataFromDb1.response.data);
-
-// namesDataFromDb1.then((response)=>{
-//   console.log(" hooooo... "+response.data);
-// }).catch((err)=>console.log("hoooooooooo..."+err.response.data));
-
-
+      console.log("namesDataFromDb1  : "+JSON.stringify(namesDataFromDb1));
+    
+      
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -76,9 +86,21 @@ const Emails = () => {
     };
     
 
-    
-    const save_trip_details = ()=>{
-        console.log("groups.component.js saving trip details to the server");
+    let email="r@gmail.com";
+  let email1="a@gmail.com";
+  let subject="Invitition for trip";
+  let body = " Come and enjoy";
+  let children="mail me!";
+
+ let  Destination={
+    ToAddresses: ["r@gmail.com"],
+    CcAddresses: ['support@mysite.com']
+};
+    const send_emails = ()=>{
+        console.log(
+          "emails.component.js sending invitations to the group members " +
+          
+          JSON.stringify(formData));
         const dataTosave={
           Group_ID:"xxxxx",
           // GroupName:formData.GroupName,
@@ -89,8 +111,14 @@ const Emails = () => {
           // YourEmail: formData.email,
           // InvitationMessage: invitationMessage,
       };
+      //window.location = 'mailto:your_email@gmail.com?subject="invitation"&body="Enjoy..."';
 
-        api.saveTripDetails(dataTosave);
+      window.open('mailto:your_email@gmail.com?subject="invitation"&body="Enjoy..."',"");
+        //api.saveTripDetails(dataTosave);
+        //let number=7621231234;
+       // let url = `https://web.whatsapp.com/send?phone=${number}`;
+        //window.open(url);
+       //window.open(`sms:7624481234`);
     }
     const styleObj = {
       fontSize: 14,
@@ -103,13 +131,9 @@ const Emails = () => {
     fontSize: 20,
     backgroundColor:blue
     
-}
-// const styleObj2 = {
-//   fontSize: 20,
-//   backgroundColor:blue,
+  }
+
   
-  
-// }
     return (
 
         <div>
@@ -127,13 +151,15 @@ const Emails = () => {
             handleChange={handleChange}  autoFocus half/> */}
 
         
-        {namesDataFromDb.map(nameRecord => {
+        {namesDataFromDb1.map(nameRecord => {
           // const { id, name, type, required } = input;
            return (
              <div>
                <h3>{nameRecord.name}</h3> 
                
-               <Input  name={"email_"+nameRecord.name} label="Fill in an email address" 
+               <Input  name={"email_"+nameRecord.name} 
+               label="Fill in an email address" 
+               handleChange={handleChange}
                autoFocus half required /> 
                {/* <span style={{fontWeight:'bold'}}></span> */}
                
@@ -146,10 +172,21 @@ const Emails = () => {
         <button type="button" onClick={handleClose}>Remove form</button>
        */}
       
+      {/* <Button onPress={() => Linking.openURL('mailto:support@example.com?subject=SendMail&body=Description') }
+              title="support@example.com">Send Email</Button> */}
 
-
+{/* <a href={`mailto:
+      ${email}?
+      subject=${encodeURIComponent(subject) || ''}
+      &body=${encodeURIComponent(body) || ''}`}>{children}</a> */}
+      {/* <a href={`mailto:
+       ${email}?
+      subject=${subject || ''}
+      &body=${body || ''}`}>{children}</a> */}
+  
         <Button type="submit" color="primary" 
-        onClick={save_trip_details } className={classes.submit} style={styleObj}>
+        onClick={send_emails} 
+        className={classes.submit} style={styleObj}>
         Send Invitation</Button>
 
         <br></br>
