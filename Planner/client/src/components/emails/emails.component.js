@@ -145,7 +145,7 @@ const Emails = () => {
 
         <div>
             <h2>There is one thing left to do!</h2>
-            <p style={styleObj}>Carefully check the email addresses before <br></br>
+            <p style={styleObj1}>Carefully check the email addresses before <br></br>
             sending the invitations.One email address <br></br>
             can be used for several people.</p>
 

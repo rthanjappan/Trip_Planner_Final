@@ -173,30 +173,37 @@ const Invitations = () => {
                 </Button>
             </Link>
                 
-            {/* <br></br>
-            <Link to="/names">
-                <Button><img style={{paddingRight: '30px'}} 
+            <br></br>
+            <Link to="/textMessages"> 
+            
+            <Button><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={text_message_icon}/> Text Message
                 <span style={{paddingLeft: '100px'}}>{">"}</span></Button>
-            </Link> */}
+            </Link>
                 
             <br></br>
             {/* <Link to="/names"> */}
-                <Button onClick={send_Whatsapp}><img style={{paddingRight: '30px'}} 
+                {/* <Button onClick={send_Whatsapp}><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={whatsapp_icon}
                 /> Whatsapp 
-                <span style={{paddingLeft: '141px'}}>{">"}</span></Button>
+                <span style={{paddingLeft: '141px'}}>{">"}</span></Button> */}
             {/* </Link> */}
-                
+            <Link to="/whatsapp"> 
+                <Button ><img style={{paddingRight: '30px'}} 
+                alt="copy_link_img" width="50px" height="50px"
+                src={whatsapp_icon}/> Whatsapp
+                <span style={{paddingLeft: '125px'}}>{">"}</span></Button>
+            </Link>
+                 
             <br></br>
-            {/* <Link to="/names"> */}
-                {/* <Button onClick={send_Messenger}><img style={{paddingRight: '30px'}} 
+            <Link to="/messenger"> 
+                <Button ><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={messenger_icon}/> Messenger
-                <span style={{paddingLeft: '125px'}}>{">"}</span></Button> */}
-            {/* </Link> */}
+                <span style={{paddingLeft: '125px'}}>{">"}</span></Button>
+            </Link>
                 
             <br></br>
 

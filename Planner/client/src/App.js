@@ -14,6 +14,10 @@ import Groups from './components/groups/groups.component.js'
 import Invitations from './components/invitations/invitations.components.js'
 import Emails from './components/emails/emails.component.js'
 import Plans from './components/plans/plans.component.js'
+import TextMessages from './components/text_messages/text_messages.component.js';
+import Messenger from './components/messenger/messenger.component.js';
+import WhatsApp from './components/whatsapp/whatsapp.component.js';
+
 
 function App() {
 
@@ -33,6 +37,10 @@ function App() {
               <Route path="/invitations" element= {<Invitations />} />
               <Route path="emails" element={<Emails/>} />
               <Route path = "/plans" element = {<Plans />} />
+              <Route path = "/textMessages" element = {<TextMessages />} />
+              <Route path = "/messenger" element = {<Messenger />} />
+              <Route path="/whatsapp" element={<WhatsApp/>} />
+
           </Routes>
       </Container>
     </BrowserRouter>
