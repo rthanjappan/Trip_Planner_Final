@@ -20,7 +20,7 @@ const Emails = () => {
     const classes = useStyles();
     
     const [input, setInput] = useState("Your Name");
-    const [ formData, setFormData ] = useState('');
+    const [ formData, setFormData ] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ const Emails = () => {
     useEffect(() => {
           dispatch(get_member_Details());
       }, [dispatch])
-      console.log("***********"+JSON.stringify(details));
+     // console.log("***********"+JSON.stringify(details));
 
       namesDataFromDb=[
         {name:details[0]?.member2??""},
@@ -65,7 +65,7 @@ const Emails = () => {
     
       ];
 
-    console.log("namesDataFromDb  : "+JSON.stringify(namesDataFromDb));
+  //  console.log("namesDataFromDb  : "+JSON.stringify(namesDataFromDb));
     
     let namesDataFromDb1=[];
      namesDataFromDb.map(nameRecord => {
@@ -74,29 +74,26 @@ const Emails = () => {
         namesDataFromDb1=[...namesDataFromDb1,nameRecord];
       }});
 
-      console.log("namesDataFromDb1  : "+JSON.stringify(namesDataFromDb1));
-    
+    console.log("namesDataFromDb1  : "+JSON.stringify(namesDataFromDb1));
+
       
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+      const handleChange = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value });
+     
     };
     const displayNames = (e) => {
        console.log(formData);
        
     };
-    
+  
 
-    let email="r@gmail.com";
-  let email1="a@gmail.com";
+  let emails=formData;
+  let email1="z@gmail.com";
   let subject="Invitition for trip";
   let body = " Come and enjoy";
   let children="mail me!";
 
- let  Destination={
-    ToAddresses: ["r@gmail.com"],
-    CcAddresses: ['support@mysite.com']
-};
-    const send_emails = ()=>{
+     const send_emails = ()=>{
         console.log(
           "emails.component.js sending invitations to the group members " +
           
@@ -111,14 +108,24 @@ const Emails = () => {
           // YourEmail: formData.email,
           // InvitationMessage: invitationMessage,
       };
-      //window.location = 'mailto:your_email@gmail.com?subject="invitation"&body="Enjoy..."';
+      let emails=formData;
+      let [key,value] =Object.entries(emails)[0];
+      let emailStr=value;
+      delete emails[0];
+      for (const [key, value] of Object.entries(emails)) {
+       // console.log(`${key}: ${value}`);
 
-      window.open('mailto:your_email@gmail.com?subject="invitation"&body="Enjoy..."',"");
-        //api.saveTripDetails(dataTosave);
-        //let number=7621231234;
-       // let url = `https://web.whatsapp.com/send?phone=${number}`;
-        //window.open(url);
-       //window.open(`sms:7624481234`);
+        emailStr+=";"+value;
+      }
+      
+
+      let url='mailto:';
+      //url+=email1;
+      url+=emailStr;
+      url+='?subject="Trip invitation"&body="Come and Enjoy..."'
+      //window.open('mailto:?subject="invitation"&body="Enjoy..."',"");
+      window.open(url,"");
+        
     }
     const styleObj = {
       fontSize: 14,
@@ -142,22 +149,16 @@ const Emails = () => {
             sending the invitations.One email address <br></br>
             can be used for several people.</p>
 
-            {/* <h3><b>Name 1</b></h3>
-            <Input name="email1" label="Fill in an email address"   
-            handleChange={handleChange}  autoFocus half/>
-
-            <h3><b>Name 2</b></h3>
-            <Input name="email2" label="Fill in an email address"   
-            handleChange={handleChange}  autoFocus half/> */}
-
-        
-        {namesDataFromDb1.map(nameRecord => {
+                    
+        {namesDataFromDb1.map((nameRecord,i) => {
           // const { id, name, type, required } = input;
            return (
              <div>
                <h3>{nameRecord.name}</h3> 
                
-               <Input  name={"email_"+nameRecord.name} 
+               <Input
+                //  name={"email_"+nameRecord.name+"_"+i}
+                name={""+i} key={""+i}
                label="Fill in an email address" 
                handleChange={handleChange}
                autoFocus half required /> 
@@ -172,18 +173,7 @@ const Emails = () => {
         <button type="button" onClick={handleClose}>Remove form</button>
        */}
       
-      {/* <Button onPress={() => Linking.openURL('mailto:support@example.com?subject=SendMail&body=Description') }
-              title="support@example.com">Send Email</Button> */}
-
-{/* <a href={`mailto:
-      ${email}?
-      subject=${encodeURIComponent(subject) || ''}
-      &body=${encodeURIComponent(body) || ''}`}>{children}</a> */}
-      {/* <a href={`mailto:
-       ${email}?
-      subject=${subject || ''}
-      &body=${body || ''}`}>{children}</a> */}
-  
+       
         <Button type="submit" color="primary" 
         onClick={send_emails} 
         className={classes.submit} style={styleObj}>
