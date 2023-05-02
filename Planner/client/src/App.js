@@ -12,7 +12,7 @@ import Page from './components/page/page.js';
 import Names from './components/names/names.component.js'
 import Groups from './components/groups/groups.component.js'
 import Invitations from './components/invitations/invitations.components.js'
-
+import Emails from './components/emails/emails.component.js'
 
 function App() {
 
@@ -30,6 +30,7 @@ function App() {
               <Route path="/names" element= {<Names />} />
               <Route path="/groups" element= {<Groups />} />
               <Route path="/invitations" element= {<Invitations />} />
+              <Route path="emails" element={<Emails/>} />
           </Routes>
       </Container>
     </BrowserRouter>
