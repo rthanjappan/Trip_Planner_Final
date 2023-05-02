@@ -180,7 +180,7 @@ const Emails = () => {
         Send Invitation</Button>
 
         <br></br>
-        <Link to="/groups" style={styleObj1}>Visit the group page
+        <Link to="/invitations" style={styleObj1}>Send Invites
         </Link>
 
         

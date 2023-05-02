@@ -20,4 +20,15 @@ export const getGroupMembers = (dataTosave) => API.post('/user/getGroupMembers',
 
 
 export const getTripDetails = () => API.get('/tripdetails');
+
+export const fetchColumn = () => API.get('/column');
+export const createColumn = (newColumn) => API.post('/column', newColumn);
+export const updateColumn = (id, updatedColumn) => API.patch(`/column/${id}`, updatedColumn);
+export const deleteColumn = (id) => API.delete(`/column/${id}`);
+
+export const fetchTask = () => API.get('/task');
+export const createTask = (newTask) => API.post('/task', newTask);
+export const updateTask = (id, updatedTask) => API.patch(`/task/${id}`, updatedTask);
+export const deleteTask = (id) => API.delete(`/task/${id}`);
+
 export const getMemberDetails = () => API.get('/memberdetails');

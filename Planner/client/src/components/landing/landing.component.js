@@ -12,7 +12,7 @@ const Landing = () => {
 
             <Paper className={classes.paper} >
             <div className={classes.title}>
-                <Typography variant="h4" color="primary">Trip Planner</Typography>
+                <Typography variant="h4" color="#F1DEDE">Trip Planner</Typography>
             </div>
             <div className={classes.subtitle}>
                 <Typography variant="h6">Make planning trips easier!</Typography>
