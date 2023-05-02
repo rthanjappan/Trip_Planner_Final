@@ -8,6 +8,8 @@ import userRoutes from './routes/users.routes.js';
 import tripDetailsRoutes from './routes/tripdetails.routes.js';
 import column from './routes/column.routes.js';
 import task from './routes/task.routes.js';
+import memberDetailRoutes from './routes/memberDetails.routes.js';
+
 
 const app = express();
 //dotenv.config();
@@ -21,6 +23,7 @@ app.use('/user', userRoutes);
 app.use('/tripdetails', tripDetailsRoutes);
 app.use('/column', column);
 app.use('/task', task);
+app.use('/memberDetails', memberDetailRoutes);
 
 
 //const PORT = process.env.PORT || 5000;
