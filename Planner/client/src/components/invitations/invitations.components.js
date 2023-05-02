@@ -146,7 +146,7 @@ const Invitations = () => {
             </Link>
                 
             <br></br>
-            <Link to="/names">
+            <Link to="/emails">
                 <Button><img style={{paddingRight: '30px'}}
                  src={email_icon}
                  alt="copy_link_img" width="50px" height="50px"/>  

@@ -118,6 +118,62 @@ export const saveTripDetails = async (req, res) => {
         res.status(500).json({ message: 'Something went wrong.' });
     }
 }
+
+export const getGroupMembers = async (req, res) => {
+    // const { Group_ID, GroupName,TripDate,
+    // MailAddress, CurrencyType,    Amt,
+    // YourEmail, InvitationMessage } = req.body;
+    // const requestData=req.body;
+    // console.log("users.controllers.js Request Data : " + JSON.stringify(requestData));
+    
+    console.log("users.controllers.js getGroupMembers");
+    // const testValue={
+    //     Group_ID:1,
+    //     GroupName:"London Trip",
+    //     TripDate: "4/1/2023",
+    //     MailAddress: "123 oak rd , GA, 30067",
+    //     CurrencyType: "US$",
+    //     Amt:"10000.00",
+    //     YourEmail: "r@ggc.edu",
+    //     InvitationMessage: "We are going to draw names! Make a wishlist " +
+    //     "and draw a name so that everyone has time to buy a gift",
+    // };
+
+    try{
+               
+        const current_member= await Member.find({}).sort({_id:-1}).limit(1);//.select('Group_ID');
+        console.log("Current_member : "+JSON.stringify(current_member));
+        
+        let curr_member_str=JSON.stringify(current_member);
+
+        // console.log("Current_member.Group_ID  : "+current_member[0].Group_ID);
+        
+        //const current_group_ID=current_member[0].Group_ID;
+
+    //    const result = await TripDetails.create({Group_ID,GroupName,TripDate,
+    //     MailAddress, CurrencyType,    Amt,
+    //     YourEmail, InvitationMessage
+    //      });
+
+    // requestData.Group_ID=current_group_ID;
+    // const result = await TripDetails.create(requestData);
+    
+    //return "I am from Server 999_999";
+    //throw err;
+        //return current_member;
+        let members=[{name:current_member[0].member2},
+        {name:current_member[0].member3},
+        {name:current_member[0].member4},
+        {name:current_member[0].member5}];
+
+        await res.send(members);
+     //throw err;    
+    } catch (err) {
+        
+        res.status(500).json(
+            {  message: 'Something went wrong. '});
+    }
+}
 //********************************************* */
 // export const roseaccessing = async (req, res) => {
 //     const { Group_ID, GroupName,TripDate,

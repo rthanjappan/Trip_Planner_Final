@@ -12,6 +12,7 @@ import Groups from './components/groups/groups.component.js';
 import Invitations from './components/invitations/invitations.components.js';
 import Plans from './components/plans/plans.component.js';
 import Board from './components/board/board.components.js';
+import Emails from './components/emails/emails.component.js'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path="/names" element= {<Names />} />
               <Route path="/groups" element= {<Groups />} />
               <Route path="/invitations" element= {<Invitations />} />
+              <Route path="emails" element={<Emails/>} />
               <Route path = "/plans" element = {<Plans />} />
               <Route path = "/board" element = {<Board/>} />
           </Routes>
