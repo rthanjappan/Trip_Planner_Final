@@ -152,15 +152,15 @@ const Invitations = () => {
         onClick={send_invitations}/>Copy link {"    >"}</a>
            </Button>
 <br></br> */}
-            <Link to="/names">
-                <Button>
+            {/* <Link to="/names"> */}
+                <Button onClick={() => {navigator.clipboard.writeText('http://localhost:3000/')}}>
                     <img style={{paddingRight: '30px'}} 
                     alt="copy_link_img" width="50px" height="50px"
                     src={copy_link}/>Copy link
                 <span style={{paddingLeft: '132px'}}>{">"}</span>
                 
                 </Button>
-            </Link>
+            {/* </Link> */}
                 
             <br></br>
             <Link to="/emails">
@@ -173,13 +173,13 @@ const Invitations = () => {
                 </Button>
             </Link>
                 
-            <br></br>
+            {/* <br></br>
             <Link to="/names">
                 <Button><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={text_message_icon}/> Text Message
                 <span style={{paddingLeft: '100px'}}>{">"}</span></Button>
-            </Link>
+            </Link> */}
                 
             <br></br>
             {/* <Link to="/names"> */}
@@ -192,10 +192,10 @@ const Invitations = () => {
                 
             <br></br>
             {/* <Link to="/names"> */}
-                <Button onClick={send_Messenger}><img style={{paddingRight: '30px'}} 
+                {/* <Button onClick={send_Messenger}><img style={{paddingRight: '30px'}} 
                 alt="copy_link_img" width="50px" height="50px"
                 src={messenger_icon}/> Messenger
-                <span style={{paddingLeft: '125px'}}>{">"}</span></Button>
+                <span style={{paddingLeft: '125px'}}>{">"}</span></Button> */}
             {/* </Link> */}
                 
             <br></br>

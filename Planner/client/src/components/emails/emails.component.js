@@ -158,7 +158,7 @@ const Emails = () => {
                
                <Input
                 //  name={"email_"+nameRecord.name+"_"+i}
-                name={""+i} key={""+i}
+                name={i+""} key={i}
                label="Fill in an email address" 
                handleChange={handleChange}
                autoFocus half required /> 
