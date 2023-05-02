@@ -23,7 +23,7 @@ This project uses the MERN Stack
 Add --force at the end of the npm command when encountered with errors
 
 1. Open the terminal
-2. Move to the "client" directory (cd C:/../WalkingTrailApp/TrailApp/client)
+2. Move to the "client" directory (cd C:/../TripPlanner/Planner/client)
 3. Enter the following commdands:  
    npm i @material-ui/core  
    npm i @material-ui/icons  
@@ -42,7 +42,7 @@ Add --force at the end of the npm command when encountered with errors
    npm i redux  
    npm i redux-thunk  
    npm i --legacy-peer-deps
-4. Move to the "server" directory (cd C:/../WalkingTrailApp/TrailApp/server)
+4. Move to the "server" directory (cd C:/../TripPlanner/Planner/server)
 5. Enter the following commdands:  
    npm i bcryptjs  
    npm i body-parser  
@@ -54,7 +54,7 @@ Add --force at the end of the npm command when encountered with errors
 
 ### How to Run
 
-1. Move to the "client" directory inside of the TrailApp foler
+1. Move to the "client" directory inside of the Planner folder
 2. Enter "npm start" in the terminal
-3. Move to the "server" directory inside of the TrailApp foler
+3. Move to the "server" directory inside of the Planner folder
 4. Enter "npm start" in the terminal

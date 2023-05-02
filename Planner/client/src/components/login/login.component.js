@@ -41,25 +41,6 @@ const Login = () => {
         setShowPassword(false);
     };
 
-    // const googleSuccess = async (res) => {
-    //     const result = jwt_decode(res?.credential);
-    //     const token = res?.credential;
-
-    //     try {
-    //         dispatch({type: 'AUTH', data: {result, token}});
-
-    //         navigate('/home');
-
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
-    // const googleFailure = (err) => {
-    //     console.log(err);
-    //     console.log('Google Sign In was unsuccessful. Try Again Later');
-    // };
-
     return (
         <Container component="main" maxWidth="xs">
             <Paper className={classes.paper} elevation={3}>
@@ -82,14 +63,6 @@ const Login = () => {
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                             { isSignup ? 'Sign Up' : 'Sign In'}
                     </Button>
-                    {/* <GoogleLogin render={(renderProps) => (<Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<icon />} variant="contained">
-                            Google Sign In
-                        </Button>
-                        )}
-                        onSuccess={googleSuccess}
-                        onFailure={googleFailure}
-                        cookiePolicy="single_host_origin"
-                    /> */}
                     <Grid container justifyContent='flex-start'>
                         <Grid item>
                             <Button onClick={switchMode}>

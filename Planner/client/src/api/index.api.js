@@ -17,3 +17,6 @@ export const getGroupMembers = (dataTosave) => API.post('/user/getGroupMembers',
 
 
 //"index.api.js API.post (/user/roseaccessing) WORKING"
+
+
+export const getTripDetails = () => API.get('/tripdetails');
