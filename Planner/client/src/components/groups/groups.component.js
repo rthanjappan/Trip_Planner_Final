@@ -1,7 +1,7 @@
 //import useStyles from './styles';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Button, Paper, Typography, Container } from '@material-ui/core';
+import { Card, Button, Paper, Typography, Container, TextField } from '@material-ui/core';
 
 
 // import Navbar from "../nav/navbar.component";
@@ -18,6 +18,8 @@ import useStyles from '../login/styles.js';
 
 const Groups = () => {
     const classes = useStyles();
+    const [ user, setUser ] = useState(JSON.parse(localStorage.getItem('profile')));
+
     const options = [
         { label: 'US$', value: 'US$' },
         { label: 'EU', value: 'EU' },
@@ -154,7 +156,7 @@ const Groups = () => {
 
         
         <p><b>Your email </b></p>
-        <Input name="email" label="rosemol@gmail.com" handleChange={handleChange} half/><br></br>
+        <Input name="email" label="Your Email" handleChange={handleChange} half/><br></br>
 
         <p><b>Invitation message </b></p>
         {/* <Input name="member5" label="Enter member 5" handleChange={handleChange} half/><br></br> */}

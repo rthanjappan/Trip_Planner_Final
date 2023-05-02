@@ -16,18 +16,6 @@ export default class App extends React.Component {
 
   state = initialData;
 
-//   onDragStart = () => {
-//     document.body.style.color = 'orange';
-//     document.body.style.transition = 'background-color 0.2s ease';
-//   };
-
-//   onDragUpdate = update => {
-//     const { destination } = update;
-//     const opacity = destination
-//         ? destination.index / Object.keys(this.state.tasks).length
-//         : 0;
-//     document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
-//   }
   onDragEnd = result => {
 
     document.body.style.color = 'inherit';
@@ -111,12 +99,6 @@ this.setState(newState);
 
             return <Column key={column.id} column={column} tasks={tasks} />;
             })}
-        </Container>
-        <Container>
-            <Paper>
-                <Typography variant="h5" >Germany</Typography>
-                <img src={germany} alt="Germany" height = "200px"/>
-            </Paper>
         </Container>
         </DragDropContext>
     );

@@ -8,3 +8,8 @@ export const CREATEDETAILS = 'CREATE';
 export const UPDATEDETAILS = 'UPDATE';
 export const DELETEDETAILS = 'DELETE';
 export const FETCH_ALLDETAILS = 'FETCH_ALL';
+
+export const CREATECOLUMN = 'CREATE';
+export const UPDATECOLUMN = 'UPDATE';
+export const DELETECOLUMN = 'DELETE';
+export const FETCH_ALLCOLUMN = 'FETCH_ALL';

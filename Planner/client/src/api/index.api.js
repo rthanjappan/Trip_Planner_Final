@@ -15,3 +15,8 @@ export const saveTripDetails = (dataTosave) => API.post('/user/saveTripDetails',
 
 
 export const getTripDetails = () => API.get('/tripdetails');
+
+export const fetchColumn = () => API.get('/column');
+export const createColumn = (newColumn) => API.post('/column', newColumn);
+export const updateColumn = (id, updatedColumn) => API.patch(`/column/${id}`, updatedColumn);
+export const deleteColumn = (id) => API.delete(`/column/${id}`);

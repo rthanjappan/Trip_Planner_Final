@@ -185,7 +185,7 @@ const Invitations = () => {
             
         
             <Button type="submit" color="primary" 
-                onClick={send_invitations } className={classes.submit} component={Link} to="/page">
+                onClick={send_invitations } className={classes.submit} component={Link} to="/board">
                 Visit the group page</Button><br></br>
         </div>
     );

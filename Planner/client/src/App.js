@@ -5,14 +5,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/nav/navbar.component.js";
 import Landing from './components/landing/landing.component.js';
 import Login from './components/login/login.component.js';
-import Home from './components/home/home.component.js';
-import Task from './components/task/task.component.js';
 import Page from './components/page/page.js';
 import Vote from './components/vote/vote.component.js';
-import Names from './components/names/names.component.js'
-import Groups from './components/groups/groups.component.js'
-import Invitations from './components/invitations/invitations.components.js'
-import Plans from './components/plans/plans.component.js'
+import Names from './components/names/names.component.js';
+import Groups from './components/groups/groups.component.js';
+import Invitations from './components/invitations/invitations.components.js';
+import Plans from './components/plans/plans.component.js';
+import Board from './components/board/board.components.js';
 
 function App() {
 
@@ -23,14 +22,13 @@ function App() {
           <Routes>
               <Route path="/" element= {<Landing />} />
               <Route path="/login" element= {<Login />} />
-              <Route path="/home" element= {<Home />} />
-              <Route path="/task" element= {<Task />} />
               <Route path="/page" element= {<Page />} />
               <Route path="/vote" element= {<Vote />} />
               <Route path="/names" element= {<Names />} />
               <Route path="/groups" element= {<Groups />} />
               <Route path="/invitations" element= {<Invitations />} />
               <Route path = "/plans" element = {<Plans />} />
+              <Route path = "/board" element = {<Board/>} />
           </Routes>
       </Container>
     </BrowserRouter>
